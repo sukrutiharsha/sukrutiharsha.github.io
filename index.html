@@ -29,23 +29,8 @@
     <h1>Sukruti <span>&amp;</span> Harsha</h1>
     <div class="rule" aria-hidden="true"></div>
     <p>A day to remember.<br>Memories to keep.</p>
-    <a id="gallery" hidden>Open wedding photos</a>
-    <p id="status">Our photo gallery is being prepared. Please check back soon.</p>
-    <p id="hint" class="note" hidden>Use the guest password shared with you to find your photos.</p>
+    <a id="gallery" href="https://sukrutiharsha.pages.dev/">Open wedding photos</a>
+    <p id="hint" class="note">Use the guest password shared with you to find your photos.</p>
   </main>
-  <script src="config.js?v=pages-dev"></script>
-  <script>
-    if (window.WEDDING_GALLERY_URL) {
-      try {
-        const url = new URL(window.WEDDING_GALLERY_URL);
-        if (url.protocol === 'https:' && !url.username && !url.password) {
-          document.getElementById('gallery').href = url.href;
-          document.getElementById('gallery').hidden = false;
-          document.getElementById('hint').hidden = false;
-          document.getElementById('status').hidden = true;
-        }
-      } catch (_) { /* Keep the setup message until a valid destination is configured. */ }
-    }
-  </script>
 </body>
 </html>
