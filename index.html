@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Wedding photos of Sukruti and Harsha, shared with family and friends.">
+  <title>Sukruti &amp; Harsha · Wedding Photos</title>
+  <style>
+    :root { color-scheme: light; font-family: Georgia, 'Times New Roman', serif; color: #493d35; background: #f6f2eb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px; }
+    main { width: min(100%, 660px); padding: clamp(32px, 8vw, 76px) 24px; text-align: center; border: 1px solid #d8c9b7; border-radius: 180px 180px 16px 16px; background: #fffdf8; }
+    .eyebrow { font: 11px/1.5 system-ui, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: #77674e; }
+    h1 { font-weight: 400; font-size: clamp(38px, 8vw, 62px); line-height: 1.12; margin: 28px 0; }
+    h1 span { display: block; font-style: italic; font-size: .62em; color: #8b7452; margin: 10px; }
+    .rule { width: 50px; border-top: 1px solid #b7a180; margin: 30px auto; }
+    p { max-width: 340px; margin: 18px auto; font: 16px/1.65 system-ui, sans-serif; }
+    a { display: inline-block; margin: 14px 0; padding: 16px 28px; border-radius: 6px; background: #4f5f48; color: #fff; text-decoration: none; font: 600 15px/1.4 system-ui, sans-serif; }
+    a:hover { background: #394934; }
+    a:focus-visible { outline: 3px solid #a06a26; outline-offset: 5px; }
+    [hidden] { display: none !important; }
+    .note { font-size: 13px; color: #71685f; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Together with our favorite people</div>
+    <h1>Sukruti <span>&amp;</span> Harsha</h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p>A day to remember.<br>Memories to keep.</p>
+    <a id="gallery" hidden>Open wedding photos</a>
+    <p id="status">Our photo gallery is being prepared. Please check back soon.</p>
+    <p id="hint" class="note" hidden>Use the guest password shared with you to find your photos.</p>
+  </main>
+  <script src="config.js"></script>
+  <script>
+    if (window.WEDDING_GALLERY_URL) {
+      try {
+        const url = new URL(window.WEDDING_GALLERY_URL);
+        if (url.protocol === 'https:' && !url.username && !url.password) {
+          document.getElementById('gallery').href = url.href;
+          document.getElementById('gallery').hidden = false;
+          document.getElementById('hint').hidden = false;
+          document.getElementById('status').hidden = true;
+        }
+      } catch (_) { /* Keep the setup message until a valid destination is configured. */ }
+    }
+  </script>
+</body>
+</html>
